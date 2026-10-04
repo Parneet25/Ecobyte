@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoByte | Digital Technology Energy Consumption & Carbon Footprint</title>
+  <meta name="description" content="EcoByte is a modern environmental-tech platform illuminating the invisible energy consumption and carbon footprint of digital life, from streaming and cloud storage to AI and device lifecycles.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js via CDN for High-Performance Interactive Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Interactive Particles Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Ambient Neon Radial Glows -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
+
+  <!-- ==========================================================================
+       1. NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            <circle cx="12" cy="12" r="3" fill="#10b981" stroke="none"/>
+          </svg>
+        </div>
+        <span class="brand-name">🌱 Eco<span class="brand-accent">Byte</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#problem" class="nav-link">The Problem</a>
+        <a href="#lifecycle" class="nav-link">Impact Flow</a>
+        <a href="#calculator" class="nav-link">Calculator</a>
+        <a href="#dashboard" class="nav-link">Impact</a>
+        <a href="#solutions" class="nav-link">Solutions</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#calculator" class="btn btn-primary btn-sm">Calculate Footprint</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. HOME (HERO SECTION)
+       ========================================================================== -->
+  <section class="section hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text-col">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Digital Technology & Environmental Sustainability</span>
+          </div>
+
+          <h1 class="hero-title">
+            Your Digital Life Has a <span class="gradient-text">Carbon Footprint.</span>
+          </h1>
+
+          <p class="hero-subheading">
+            Discover how everyday digital activities consume energy — and learn how small changes can create a greener digital future.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#calculator" class="btn btn-primary btn-large">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              Calculate My Footprint
+            </a>
+            <a href="#problem" class="btn btn-secondary btn-large">
+              Explore the Problem
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Futuristic Tech + Nature Ecosystem Visual -->
+        <div class="hero-visual-card">
+          <div class="hero-image-wrapper">
+            <img src="assets/hero_visual.jpg" alt="EcoByte Futuristic Digital Ecosystem" class="hero-3d-img">
+          </div>
+          <div class="hero-visual-badge">
+            <span class="eco-live-tag">
+              <span class="pulse-dot"></span>
+              ECO-TELEMETRY
+            </span>
+            <span>Digital Infrastructure ↔ Real-World Energy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Statistics Strip Below Hero -->
+      <div class="hero-stats-grid">
+        <div class="stat-card glass-card">
+          <div class="stat-number">460 <span class="stat-unit">TWh</span></div>
+          <div class="stat-label">Global data centre electricity use (2022)</div>
+          <div class="stat-source">Source: IEA Electricity 2024 Report</div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-number">62 <span class="stat-unit">Mt</span></div>
+          <div class="stat-label">Global electronic waste generated in 2022</div>
+          <div class="stat-source">Source: UNITAR / ITU Global E-waste Monitor</div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-number">~2–4 <span class="stat-unit">%</span></div>
+          <div class="stat-label">Digital technology share of global GHG emissions</div>
+          <div class="stat-source">Source: ITU / UNEP Environmental Studies</div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-number">75–80 <span class="stat-unit">%</span></div>
+          <div class="stat-label">Carbon footprint locked in manufacturing before first boot</div>
+          <div class="stat-source">Source: IEEE / European Commission</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. “THE PROBLEM” SECTION
+       ========================================================================== -->
+  <section class="section problem-section" id="problem">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">PHYSICAL INFRASTRUCTURE</div>
+        <h2 class="section-title">The Hidden Cost of <span class="gradient-text">Going Digital</span></h2>
+        <p class="section-desc">
+          Although digital technology feels inherently clean by eliminating physical paper and physical transit, every click, stream, and query relies on an unbroken chain of electricity grids, hyperscale servers, cooling chillers, semiconductor manufacturing, and transoceanic fiber cables.
+        </p>
+      </div>
+
+      <!-- 6 Interactive Problem Cards -->
+      <div class="problem-grid">
+        <!-- 1. Device Energy -->
+        <div class="problem-card glass-card" style="--card-accent: #10b981;">
+          <div>
+            <div class="problem-card-icon">📱</div>
+            <h3 class="problem-card-title">Device Energy</h3>
+            <p class="problem-card-desc">
+              Phones, laptops, tablets, and computers require electricity throughout their lifecycle for screen illumination, microprocessors, and charging cycles.
+            </p>
+          </div>
+          <div class="problem-card-footer">
+            <span class="problem-card-metric">5W – 180W Active</span>
+            <button class="btn-learn-more" data-learn-more="device">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Cloud & Data Centers -->
+        <div class="problem-card glass-card" style="--card-accent: #06b6d4;">
+          <div>
+            <div class="problem-card-icon">☁️</div>
+            <h3 class="problem-card-title">Cloud & Data Centers</h3>
+            <p class="problem-card-desc">
+              Photos, videos, files, websites, apps, and cloud backups rely on millions of servers running 24/7 inside massive hyperscale facilities requiring industrial chillers.
+            </p>
+          </div>
+          <div class="problem-card-footer">
+            <span class="problem-card-metric">~460 TWh Global (IEA)</span>
+            <button class="btn-learn-more" data-learn-more="cloud">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Streaming -->
+        <div class="problem-card glass-card" style="--card-accent: #3b82f6;">
+          <div>
+            <div class="problem-card-icon">🎬</div>
+            <h3 class="problem-card-title">Streaming Media</h3>
+            <p class="problem-card-desc">
+              High-definition and 4K video streaming requires high-bandwidth data transfers, real-time edge transcoders, and memory buffers across content delivery networks.
+            </p>
+          </div>
+          <div class="problem-card-footer">
+            <span class="problem-card-metric">~60% Global Traffic</span>
+            <button class="btn-learn-more" data-learn-more="streaming">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. AI & Computing -->
+        <div class="problem-card glass-card" style="--card-accent: #f59e0b;">
+          <div>
+            <div class="problem-card-icon">🤖</div>
+            <h3 class="problem-card-title">AI & Computing</h3>
+            <p class="problem-card-desc">
+              Large AI models require substantial computational resources and electricity for parallel tensor calculations across specialized high-wattage GPU server clusters.
+            </p>
+          </div>
+          <div class="problem-card-footer">
+            <span class="problem-card-metric">5x–10x vs Standard Query</span>
+            <button class="btn-learn-more" data-learn-more="ai">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. E-Waste -->
+        <div class="problem-card glass-card" style="--card-accent: #f43f5e;">
+          <div>
+            <div class="problem-card-icon">🗑️</div>
+            <h3 class="problem-card-title">E-Waste Surge</h3>
+            <p class="problem-card-desc">
+              Frequent device upgrades contribute to electronic waste and critical resource consumption. Less than a quarter of e-waste is formally collected and recycled.
+            </p>
+          </div>
+          <div class="problem-card-footer">
+            <span class="problem-card-metric">62 Mt / Year (UNITAR)</span>
+            <button class="btn-learn-more" data-learn-more="ewaste">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. Network Infrastructure -->
+        <div class="problem-card glass-card" style="--card-accent: #8b5cf6;">
+          <div>
+            <div class="problem-card-icon">⚡</div>
+            <h3 class="problem-card-title">Network Infrastructure</h3>
+            <p class="problem-card-desc">
+              Mobile cellular base stations (4G/5G), Wi-Fi routers, optical switches, and transoceanic internet trunks require continuous electrical power to transmit bits.
+            </p>
+          </div>
+          <div class="problem-card-footer">
+            <span class="problem-card-metric">~300 TWh Networks</span>
+            <button class="btn-learn-more" data-learn-more="network">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Mission Callout -->
+      <div class="mission-callout glass-card">
+        <div class="callout-icon">💡</div>
+        <div>
+          <div class="callout-heading">EcoByte Core Philosophy</div>
+          <p>
+            “Technology is indispensable for human progress, education, and connection. EcoByte does not advocate abandoning digital tools; rather, we empower users to eliminate invisible waste, preserve hardware longevity, and cultivate intentional digital habits.”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. “DIGITAL IMPACT” LIFECYCLE VISUALIZATION
+       ========================================================================== -->
+  <section class="section lifecycle-section" id="lifecycle">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">FULL LIFECYCLE MODEL</div>
+        <h2 class="section-title">The Complete <span class="gradient-text">Digital Lifecycle</span></h2>
+        <p class="section-desc">
+          Click through each stage to explore how digital technology consumes energy and generates environmental impact from initial mineral extraction to final decommissioning.
+        </p>
+      </div>
+
+      <div class="lifecycle-wrapper">
+        <!-- Interactive Stepper Flow Track -->
+        <div class="lifecycle-track">
+          <div class="lifecycle-node active" data-step="0">
+            <div class="node-step-badge">1</div>
+            <div class="node-icon-box">🏭</div>
+            <div class="node-name">Device Manufacturing</div>
+            <div class="node-sub">Raw materials + energy</div>
+          </div>
+
+          <div class="lifecycle-node" data-step="1">
+            <div class="node-step-badge">2</div>
+            <div class="node-icon-box">📡</div>
+            <div class="node-name">Internet Networks</div>
+            <div class="node-sub">Data transmission & 5G</div>
+          </div>
+
+          <div class="lifecycle-node" data-step="2">
+            <div class="node-step-badge">3</div>
+            <div class="node-icon-box">🏢</div>
+            <div class="node-name">Data Centers</div>
+            <div class="node-sub">Compute + storage + cooling</div>
+          </div>
+
+          <div class="lifecycle-node" data-step="3">
+            <div class="node-step-badge">4</div>
+            <div class="node-icon-box">💻</div>
+            <div class="node-name">User Activity</div>
+            <div class="node-sub">Streaming + gaming + AI</div>
+          </div>
+
+          <div class="lifecycle-node" data-step="4">
+            <div class="node-step-badge">5</div>
+            <div class="node-icon-box">♻️</div>
+            <div class="node-name">E-Waste</div>
+            <div class="node-sub">Disposal + recycling gap</div>
+          </div>
+        </div>
+
+        <!-- Dynamic Inspection Details Card -->
+        <div class="lifecycle-detail-card glass-card">
+          <div class="stage-left-info">
+            <div class="stage-title-group">
+              <span class="stage-icon-large" id="stageIcon">🏭</span>
+              <h3 class="stage-title" id="stageTitle">Embodied Energy & Semiconductor Fabrication</h3>
+            </div>
+            <p class="stage-narrative" id="stageNarrative">
+              Before a single kilowatt-hour is drawn from your home outlet, enormous energy is consumed extracting rare earth elements, purifying silicon wafers in cleanrooms, and shipping hardware globally.
+            </p>
+            <ul class="stage-metrics-list" id="stageMetricsList">
+              <!-- Dynamically populated via script.js -->
+            </ul>
+          </div>
+
+          <div class="stage-interactive-widget">
+            <div class="widget-stat-headline">Observed Environmental Metric</div>
+            <div class="widget-stat-value" id="widgetStatValue">70% – 80%</div>
+            <div class="widget-stat-note" id="widgetStatNote">of a laptop's total lifetime emissions occur during manufacturing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. DIGITAL FOOTPRINT CALCULATOR
+       ========================================================================== -->
+  <section class="section calculator-section" id="calculator">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">MULTI-STEP ESTIMATOR</div>
+        <h2 class="section-title">Calculate Your <span class="gradient-text">Digital Footprint</span></h2>
+        <p class="section-desc">
+          Enter your average daily digital activities. EcoByte uses empirical power profiles, network transmission coefficients, and hardware lifecycle amortization to calculate your <strong>ESTIMATED DIGITAL ENERGY IMPACT</strong>.
+        </p>
+      </div>
+
+      <div class="calculator-card glass-card">
+        <!-- Preset Profiles Selector -->
+        <div class="preset-selector-bar">
+          <span class="preset-title">Load Typical User Profile:</span>
+          <button type="button" class="btn-preset active" data-preset="student">🎓 University Student</button>
+          <button type="button" class="btn-preset" data-preset="casual">📱 Light / Casual User</button>
+          <button type="button" class="btn-preset" data-preset="gamer">🎮 Gamer & Streamer</button>
+          <button type="button" class="btn-preset" data-preset="minimalist">🌱 Eco-Minimalist</button>
+        </div>
+
+        <form id="footprintForm">
+          <!-- Step 1: Personal Computing Devices -->
+          <div class="calc-category">
+            <div class="calc-category-header">
+              <span class="calc-step-num">STEP 01</span>
+              <h3 class="calc-category-title">Device Usage (Daily Hours)</h3>
+            </div>
+
+            <div class="calc-inputs-grid">
+              <!-- Laptop / PC -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">💻</span> Laptop / Productivity PC</span>
+                  <span class="input-value-badge" id="valLaptop">7 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursLaptop" min="0" max="16" step="0.5" value="7">
+                <div class="input-tile-sub">
+                  <span>Power rating: ~45W active</span>
+                  <span>Range: 0 – 16 hrs</span>
+                </div>
+              </div>
+
+              <!-- Smartphone -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">📱</span> Smartphone</span>
+                  <span class="input-value-badge" id="valSmartphone">5.5 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursSmartphone" min="0" max="16" step="0.5" value="5.5">
+                <div class="input-tile-sub">
+                  <span>Power rating: ~5W active/charging</span>
+                  <span>Range: 0 – 16 hrs</span>
+                </div>
+              </div>
+
+              <!-- Tablet -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">📑</span> Tablet Computer</span>
+                  <span class="input-value-badge" id="valTablet">2 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursTablet" min="0" max="12" step="0.5" value="2">
+                <div class="input-tile-sub">
+                  <span>Power rating: ~12W active</span>
+                  <span>Range: 0 – 12 hrs</span>
+                </div>
+              </div>
+
+              <!-- Gaming Console / Rig -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">🎮</span> Gaming Console / Rig</span>
+                  <span class="input-value-badge" id="valGaming">1.5 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursGaming" min="0" max="12" step="0.5" value="1.5">
+                <div class="input-tile-sub">
+                  <span>Power rating: ~160W GPU 3D load</span>
+                  <span>Range: 0 – 12 hrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Streaming & Internet Connectivity -->
+          <div class="calc-category">
+            <div class="calc-category-header">
+              <span class="calc-step-num">STEP 02</span>
+              <h3 class="calc-category-title">Streaming & Internet Usage</h3>
+            </div>
+
+            <div class="calc-inputs-grid">
+              <!-- Video Streaming -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">🎬</span> Video Streaming (HD/4K)</span>
+                  <span class="input-value-badge" id="valVideo">3.5 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursVideo" min="0" max="14" step="0.5" value="3.5">
+                <div class="input-tile-sub">
+                  <span>IEA benchmark: ~0.038 kWh/hr</span>
+                  <span>Range: 0 – 14 hrs</span>
+                </div>
+              </div>
+
+              <!-- Music Streaming -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">🎧</span> Music & Podcast Streaming</span>
+                  <span class="input-value-badge" id="valMusic">2.5 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursMusic" min="0" max="14" step="0.5" value="2.5">
+                <div class="input-tile-sub">
+                  <span>Audio compression: ~0.005 kWh/hr</span>
+                  <span>Range: 0 – 14 hrs</span>
+                </div>
+              </div>
+
+              <!-- General Web Browsing -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">🌐</span> General Web Browsing</span>
+                  <span class="input-value-badge" id="valBrowsing">4 hrs/day</span>
+                </div>
+                <input type="range" class="range-slider" id="hoursBrowsing" min="0" max="14" step="0.5" value="4">
+                <div class="input-tile-sub">
+                  <span>Data transfer & rendering: ~0.012 kWh/hr</span>
+                  <span>Range: 0 – 14 hrs</span>
+                </div>
+              </div>
+
+              <!-- Video Calls per week -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">📹</span> Video Calls (Lectures / Meetings)</span>
+                  <span class="input-value-badge" id="valCalls">5 calls/wk</span>
+                </div>
+                <input type="range" class="range-slider" id="callsWeek" min="0" max="25" step="1" value="5">
+                <div class="input-tile-sub">
+                  <span>Bi-directional video routing: ~0.065 kWh/hr</span>
+                  <span>Range: 0 – 25 /wk</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Cloud Storage & AI Workloads -->
+          <div class="calc-category">
+            <div class="calc-category-header">
+              <span class="calc-step-num">STEP 03</span>
+              <h3 class="calc-category-title">Cloud Storage & AI Computing</h3>
+            </div>
+
+            <div class="calc-inputs-grid">
+              <!-- Cloud Storage -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">☁️</span> Active Cloud Storage</span>
+                  <span class="input-value-badge" id="valCloud">25 GB active</span>
+                </div>
+                <input type="range" class="range-slider" id="gbCloud" min="0" max="200" step="5" value="25">
+                <div class="input-tile-sub">
+                  <span>Multi-region disk & chiller overhead</span>
+                  <span>Range: 0 – 200 GB</span>
+                </div>
+              </div>
+
+              <!-- AI Queries -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">🤖</span> AI Queries & Generations</span>
+                  <span class="input-value-badge" id="valAi">20 queries/day</span>
+                </div>
+                <input type="range" class="range-slider" id="dailyAi" min="0" max="100" step="2" value="20">
+                <div class="input-tile-sub">
+                  <span>GPU tensor inference: ~0.004 kWh/query</span>
+                  <span>Range: 0 – 100 /day</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Device Replacement Longevity -->
+          <div class="calc-category">
+            <div class="calc-category-header">
+              <span class="calc-step-num">STEP 04</span>
+              <h3 class="calc-category-title">Hardware Replacement Frequency (Embodied Carbon)</h3>
+            </div>
+
+            <div class="calc-inputs-grid">
+              <!-- Smartphone Replacement -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">🔄</span> Smartphone Upgrade Cycle</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="selectPhoneReplace" class="calc-select">
+                    <option value="1">Every 1 year (High Embodied Impact)</option>
+                    <option value="2">Every 2 years</option>
+                    <option value="3" selected>Every 3 years (Average)</option>
+                    <option value="4">Every 4 years (Eco-Friendly)</option>
+                    <option value="5">Every 5+ years (Optimal Longevity)</option>
+                  </select>
+                </div>
+                <div class="input-tile-sub">
+                  <span>Amortizes ~65 kg CO₂e manufacturing footprint</span>
+                </div>
+              </div>
+
+              <!-- Laptop Replacement -->
+              <div class="input-tile">
+                <div class="input-tile-header">
+                  <span class="input-tile-label"><span class="tile-icon">💻</span> Laptop Upgrade Cycle</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="selectLaptopReplace" class="calc-select">
+                    <option value="2">Every 2 years (High Embodied Impact)</option>
+                    <option value="3">Every 3 years</option>
+                    <option value="4" selected>Every 4 years (Average)</option>
+                    <option value="5">Every 5 years</option>
+                    <option value="6">Every 6+ years (Optimal Longevity)</option>
+                  </select>
+                </div>
+                <div class="input-tile-sub">
+                  <span>Amortizes ~250 kg CO₂e manufacturing footprint</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit CTA -->
+          <div class="calc-footer">
+            <button type="submit" class="btn btn-primary btn-large btn-calculate">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              Calculate My Impact
+            </button>
+            <p class="calc-disclaimer">
+              Calculations are peer-reviewed educational estimates based on IEA and IEEE electrical ratings. Actual results vary based on regional grid carbon intensity, device efficiency, and local network topologies.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. RESULTS DASHBOARD
+       ========================================================================== -->
+  <section class="section dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">CALCULATION TELEMETRY</div>
+        <h2 class="section-title">Your Estimated <span class="gradient-text">Digital Energy Impact</span></h2>
+        <p class="section-desc">
+          Here is your personalized digital footprint breakdown, evaluated across daily kilowatt-hours, annual emissions, and global benchmarks.
+        </p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Main Impact Metric Card -->
+        <div class="impact-hero-card glass-card">
+          <div class="impact-badge-header">
+            <span class="impact-category-badge badge-moderate" id="impactBadge">MODERATE IMPACT</span>
+            <button class="btn btn-secondary btn-sm" id="btnCopyReport">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Summary
+            </button>
+          </div>
+
+          <div class="metric-big-display">
+            <div class="metric-unit-group">
+              <span class="metric-value-large" id="metricDailyKwh">1.18</span>
+              <span class="metric-label-sub">kWh / day (Daily electricity)</span>
+            </div>
+            <div class="metric-unit-group">
+              <span class="metric-value-large" id="metricAnnualKwh">430.7</span>
+              <span class="metric-label-sub">kWh / year (Annual electricity)</span>
+            </div>
+            <div class="metric-unit-group">
+              <span class="metric-value-large" id="metricAnnualCo2">342 kg</span>
+              <span class="metric-label-sub">CO₂e / year (Total carbon footprint)</span>
+            </div>
+          </div>
+
+          <div class="impact-narrative-box" id="impactNarrative">
+            <strong>Moderate Impact:</strong> You have some opportunities to reduce your digital footprint. Your digital habits balance study and entertainment, but display sleep and streaming choices offer substantial energy savings.
+          </div>
+
+          <!-- Benchmark Comparison Bar -->
+          <div class="benchmark-container">
+            <div class="benchmark-labels">
+              <span id="benchmarkUserText">You: 342 kg CO₂e/yr</span>
+              <span>Global Benchmark: 380 kg CO₂e/yr</span>
+            </div>
+            <div class="benchmark-track">
+              <div class="benchmark-user-bar" id="benchmarkUserBar" style="width: 45%;"></div>
+              <div class="benchmark-marker" style="left: 50%;"></div>
+            </div>
+          </div>
+
+          <!-- Real-World Equivalencies Grid -->
+          <div class="equivalency-grid">
+            <div class="equiv-item">
+              <div class="equiv-icon">🔋</div>
+              <div class="equiv-value" id="equivCharges">~98</div>
+              <div class="equiv-label">Phone charges daily</div>
+            </div>
+            <div class="equiv-item">
+              <div class="equiv-icon">💡</div>
+              <div class="equiv-value" id="equivLed">~118 hrs</div>
+              <div class="equiv-label">10W LED bulb illumination</div>
+            </div>
+            <div class="equiv-item">
+              <div class="equiv-icon">🚗</div>
+              <div class="equiv-value" id="equivCar">~1,409 km</div>
+              <div class="equiv-label">Gasoline car travel</div>
+            </div>
+            <div class="equiv-item">
+              <div class="equiv-icon">🌲</div>
+              <div class="equiv-value" id="equivTrees">15.7 trees</div>
+              <div class="equiv-label">Required to absorb carbon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Breakdown Donut Chart Card -->
+        <div class="chart-card glass-card">
+          <div class="chart-header">
+            <h3 class="chart-title">Energy Consumption Breakdown</h3>
+            <span class="badge-pill cyan" style="margin: 0;">Dynamic % Share</span>
+          </div>
+
+          <div class="chart-canvas-wrapper">
+            <canvas id="breakdownCanvas"></canvas>
+          </div>
+
+          <div class="chart-legend-grid" id="chartLegendList">
+            <!-- Dynamically populated via script.js -->
+          </div>
+
+          <div class="largest-factor-alert" id="highestConsumerNotice">
+            <span>⚡</span>
+            <span>Largest Contributor: <strong id="highestFactorName">Laptop & PC Computing</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button leading directly to solutions -->
+      <div class="text-center mt-6">
+        <a href="#solutions" class="btn btn-cyan btn-large">
+          How Can I Reduce My Impact?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. DIGITAL SUSTAINABILITY SCORE
+       ========================================================================== -->
+  <section class="section score-section" id="score">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">COMPREHENSIVE RATING</div>
+        <h2 class="section-title">EcoByte Digital <span class="gradient-text">Sustainability Score</span></h2>
+        <p class="section-desc">
+          An indexed rating from 0 to 100 assessing how mindfully you manage computing hardware, data transmission, and computational workloads.
+        </p>
+      </div>
+
+      <div class="score-section-card glass-card">
+        <!-- SVG Gauge -->
+        <div class="gauge-visual-container">
+          <svg class="gauge-svg" viewBox="0 0 200 120">
+            <defs>
+              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f43f5e"/>
+                <stop offset="45%" stop-color="#f59e0b"/>
+                <stop offset="75%" stop-color="#06b6d4"/>
+                <stop offset="100%" stop-color="#10b981"/>
+              </linearGradient>
+            </defs>
+            <path class="gauge-bg-path" d="M 20 100 A 70 70 0 0 1 180 100"/>
+            <path class="gauge-fill-path" id="gaugeFillPath" d="M 20 100 A 70 70 0 0 1 180 100"/>
+          </svg>
+
+          <div class="gauge-score-center">
+            <div class="gauge-number" id="gaugeScoreNumber">78</div>
+            <div class="gauge-max">/ 100</div>
+            <div class="gauge-rating-badge badge-moderate" id="gaugeRatingBadge">Good</div>
+          </div>
+        </div>
+
+        <!-- Score Breakdown Factor Bars -->
+        <div class="score-breakdown-list">
+          <div class="score-factor-item">
+            <div class="score-factor-meta">
+              <span class="factor-name">Hardware Longevity & Upgrades</span>
+              <span class="factor-grade">78/100</span>
+            </div>
+            <div class="factor-track">
+              <div class="factor-bar" style="width: 78%;"></div>
+            </div>
+          </div>
+
+          <div class="score-factor-item">
+            <div class="score-factor-meta">
+              <span class="factor-name">Streaming Discipline (Bitrate Overhead)</span>
+              <span class="factor-grade">65/100</span>
+            </div>
+            <div class="factor-track">
+              <div class="factor-bar" style="width: 65%;"></div>
+            </div>
+          </div>
+
+          <div class="score-factor-item">
+            <div class="score-factor-meta">
+              <span class="factor-name">Cloud Storage Hygiene</span>
+              <span class="factor-grade">82/100</span>
+            </div>
+            <div class="factor-track">
+              <div class="factor-bar" style="width: 82%;"></div>
+            </div>
+          </div>
+
+          <div class="score-factor-item">
+            <div class="score-factor-meta">
+              <span class="factor-name">AI & Computational Prudence</span>
+              <span class="factor-grade">75/100</span>
+            </div>
+            <div class="factor-track">
+              <div class="factor-bar" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. PERSONALIZED RECOMMENDATIONS (SOLUTIONS)
+       ========================================================================== -->
+  <section class="section recommendations-section" id="solutions">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">DYNAMIC MITIGATION ENGINE</div>
+        <h2 class="section-title">Personalized <span class="gradient-text">Eco-Action Recommendations</span></h2>
+        <p class="section-desc">
+          Generated in real-time based on your specific calculator inputs. Check the actions you commit to taking to see your cumulative carbon savings increase!
+        </p>
+      </div>
+
+      <!-- Action Cards Grid (Populated dynamically via JS) -->
+      <div class="recommendations-grid" id="recommendationsGrid">
+        <!-- Dynamically injected -->
+      </div>
+
+      <!-- Cumulative Savings Ticker Banner -->
+      <div class="savings-potential-banner glass-card">
+        <div class="savings-left">
+          <div class="savings-icon-large">🌱</div>
+          <div>
+            <h4>Pledged Annual Carbon Reductions</h4>
+            <p>By adopting your selected digital efficiency habits, your estimated annual footprint decreases by:</p>
+          </div>
+        </div>
+        <div class="savings-metric-box">
+          <div class="savings-num" id="potentialSavingsNum">0 kg</div>
+          <div class="savings-subtext" id="potentialSavingsPct">(Select habit pledges above to calculate savings)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. BEFORE VS AFTER SIMULATOR
+       ========================================================================== -->
+  <section class="section before-after-section" id="beforeAfter">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">SIMULATION DEMONSTRATION</div>
+        <h2 class="section-title">See The Difference <span class="gradient-text">Your Habits Can Make</span></h2>
+        <p class="section-desc">
+          Compare the typical default baseline of continuous 4K streaming and unmanaged standby power against optimized, green digital habits.
+        </p>
+      </div>
+
+      <div class="before-after-container glass-card">
+        <!-- Interactive Adjuster Slider -->
+        <div class="interactive-slider-wrapper">
+          <div class="input-tile-header">
+            <span class="input-tile-label">Test Different Daily Streaming Hours in Simulation:</span>
+            <span class="input-value-badge" id="simStreamingVal">3.5 hrs/day</span>
+          </div>
+          <input type="range" class="range-slider" id="simStreamingSlider" min="0.5" max="10" step="0.5" value="3.5">
+        </div>
+
+        <div class="compare-grid">
+          <!-- Column 1: Current Unoptimized Habits -->
+          <div class="compare-column before">
+            <span class="compare-badge">UNOPTIMIZED HABITS</span>
+            <div class="compare-val">1.25 <span style="font-size: 1.1rem; color: #fb7185;">kWh/day</span></div>
+            <div class="compare-sub">~450 kg CO₂e / year</div>
+            <ul class="compare-list">
+              <li>• Continuous 4K/1440p video streaming</li>
+              <li>• Default system display timeouts (never sleeps)</li>
+              <li>• Standby chargers & gaming consoles plugged in</li>
+              <li>• Unchecked duplicate cloud backups</li>
+              <li>• Upgrading smartphone every 1–2 years</li>
+            </ul>
+          </div>
+
+          <!-- Center Arrow -->
+          <div class="compare-arrow-center">
+            <div class="arrow-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+            <span class="savings-pill-highlight" id="simSavingsPercent">-38% Energy</span>
+          </div>
+
+          <!-- Column 2: Greener Habits -->
+          <div class="compare-column after">
+            <span class="compare-badge">GREENER HABITS</span>
+            <div class="compare-val" id="simAfterKwh">0.61 <span style="font-size: 1.1rem; color: #34d399;">kWh/day</span></div>
+            <div class="compare-sub" id="simAfterCo2">~280 kg CO₂e / year</div>
+            <ul class="compare-list">
+              <li>• 1080p/720p resolution on mobile screens</li>
+              <li>• 5-minute display timeout + sleep profiles</li>
+              <li>• Power strip shut down overnight (zero phantom drain)</li>
+              <li>• Curated cloud storage hygiene</li>
+              <li>• Maintaining personal hardware for 4+ years</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. "WHAT CAN YOU DO?" SECTION (Small Digital Habits)
+       ========================================================================== -->
+  <section class="section habits-section" id="habits">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">PRACTICAL PLAYBOOK</div>
+        <h2 class="section-title">Small Digital Habits. <span class="gradient-text">Big Environmental Difference.</span></h2>
+        <p class="section-desc">
+          Simple, actionable strategies you can apply today across video streaming, personal devices, cloud storage, and AI interactions.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="tips-filter-bar">
+        <button class="btn-filter active" data-filter="all">All Tips</button>
+        <button class="btn-filter" data-filter="everyday">Everyday Habits</button>
+        <button class="btn-filter" data-filter="settings">Device Settings</button>
+        <button class="btn-filter" data-filter="hardware">Hardware Longevity</button>
+        <button class="btn-filter" data-filter="cloud">Cloud & Streaming</button>
+        <button class="btn-filter" data-filter="ai">AI & Web</button>
+      </div>
+
+      <!-- 12 Practical Tips Cards Grid -->
+      <div class="tips-grid-cards">
+        <div class="tip-item-card glass-card" data-category="cloud">
+          <div>
+            <div class="tip-icon-header">🎬</div>
+            <h4 class="tip-title">Lower Unnecessary Video Quality</h4>
+            <p class="tip-text">Drop resolution to 1080p or 720p on phones and tablets where extra pixels consume high cellular bandwidth without visual gain.</p>
+          </div>
+          <span class="tip-tag">Cloud & Streaming</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="settings">
+          <div>
+            <div class="tip-icon-header">🔌</div>
+            <h4 class="tip-title">Turn Off Devices When Inactive</h4>
+            <p class="tip-text">Power down external monitors, sound systems, and TV docks at the wall socket to eradicate continuous phantom standby load.</p>
+          </div>
+          <span class="tip-tag">Device Settings</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="settings">
+          <div>
+            <div class="tip-icon-header">💤</div>
+            <h4 class="tip-title">Enable Power-Saving Sleep Modes</h4>
+            <p class="tip-text">Set laptop display timeout to 5 minutes and sleep mode to 15 minutes. Enable dark mode on OLED smartphone displays.</p>
+          </div>
+          <span class="tip-tag">Device Settings</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="cloud">
+          <div>
+            <div class="tip-icon-header">☁️</div>
+            <h4 class="tip-title">Delete Stale Cloud Files & Backups</h4>
+            <p class="tip-text">Audit Google Drive, iCloud, or Dropbox to purge duplicate high-res videos and outdated device backups requiring active server cooling.</p>
+          </div>
+          <span class="tip-tag">Cloud & Streaming</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="hardware">
+          <div>
+            <div class="tip-icon-header">⏳</div>
+            <h4 class="tip-title">Keep Devices for Longer (4+ Years)</h4>
+            <p class="tip-text">Resisting premature phone and laptop upgrades prevents up to 75% of a device's lifetime manufacturing carbon emissions.</p>
+          </div>
+          <span class="tip-tag">Hardware Longevity</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="hardware">
+          <div>
+            <div class="tip-icon-header">🛠️</div>
+            <h4 class="tip-title">Repair Devices When Possible</h4>
+            <p class="tip-text">Replace aging batteries and cracked screens through certified repair technicians rather than replacing the entire device.</p>
+          </div>
+          <span class="tip-tag">Hardware Longevity</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="hardware">
+          <div>
+            <div class="tip-icon-header">♻️</div>
+            <h4 class="tip-title">Recycle Electronics Responsibly</h4>
+            <p class="tip-text">Never dispose of electronics in household trash. Utilize certified university e-waste collection points to recover critical minerals.</p>
+          </div>
+          <span class="tip-tag">Hardware Longevity</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="everyday">
+          <div>
+            <div class="tip-icon-header">📶</div>
+            <h4 class="tip-title">Prioritize Wi-Fi Over 4G/5G</h4>
+            <p class="tip-text">Fixed broadband Wi-Fi transmits data with up to 3x higher energy efficiency than mobile cellular radio base stations.</p>
+          </div>
+          <span class="tip-tag">Everyday Habits</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="cloud">
+          <div>
+            <div class="tip-icon-header">🔇</div>
+            <h4 class="tip-title">Reduce Passive Background Streaming</h4>
+            <p class="tip-text">Avoid playing video playlists in background tabs when you are only listening to the audio. Switch to dedicated audio streams.</p>
+          </div>
+          <span class="tip-tag">Cloud & Streaming</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="ai">
+          <div>
+            <div class="tip-icon-header">🤖</div>
+            <h4 class="tip-title">Prompt AI Intentionally</h4>
+            <p class="tip-text">Formulate clear, comprehensive prompts in a single interaction to avoid dozens of repeated GPU matrix iterations.</p>
+          </div>
+          <span class="tip-tag">AI & Web</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="cloud">
+          <div>
+            <div class="tip-icon-header">📬</div>
+            <h4 class="tip-title">Unsubscribe from Unneeded Newsletters</h4>
+            <p class="tip-text">Mass promotional emails stored across millions of user inboxes quietly consume petabytes of redundant server storage capacity.</p>
+          </div>
+          <span class="tip-tag">Cloud & Streaming</span>
+        </div>
+
+        <div class="tip-item-card glass-card" data-category="everyday">
+          <div>
+            <div class="tip-icon-header">⚡</div>
+            <h4 class="tip-title">Unplug Fully Charged Adapters</h4>
+            <p class="tip-text">Chargers left plugged into wall sockets continue drawing small quiescent current ("vampire power") even when unattached.</p>
+          </div>
+          <span class="tip-tag">Everyday Habits</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. EDUCATIONAL SECTION: “DID YOU KNOW?”
+       ========================================================================== -->
+  <section class="section did-you-know-section" id="didYouKnow">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">SCIENTIFIC INSIGHTS</div>
+        <h2 class="section-title">Did You <span class="gradient-text">Know?</span></h2>
+        <p class="section-desc">
+          Empirical facts illustrating the scale, growth, and invisible infrastructure of global digital consumption.
+        </p>
+      </div>
+
+      <div class="facts-explorer-card glass-card">
+        <div class="facts-header">
+          <span class="facts-topic-badge" id="factTopicBadge">DATA CENTERS</span>
+          <span class="fact-counter" id="factCounter">1 / 6</span>
+        </div>
+
+        <div class="fact-card-body" id="factCardBody">
+          <h3 class="fact-title-text" id="factTitle">Global Data Centers Match Entire Nations in Power Demand</h3>
+          <p class="fact-desc-text" id="factDesc">
+            Global data centers consumed approximately 460 TWh of electricity in 2022. By 2026, the International Energy Agency projects this could surge past 800–1,000 TWh, equivalent to the entire electrical consumption of Japan.
+          </p>
+          <div class="fact-citation-box" id="factCitation">
+            Reference: IEA Electricity 2024 Report
+          </div>
+        </div>
+
+        <div class="facts-action-bar">
+          <span class="text-secondary" style="font-size: 0.85rem;">Click to cycle through peer-reviewed sustainability facts:</span>
+          <button class="btn btn-secondary btn-sm" id="btnNextFact">
+            New Fact
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       12. SOURCES / REFERENCES & METHODOLOGY
+       ========================================================================== -->
+  <section class="section sources-section" id="sources">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">FACT-CHECKED BIBLIOGRAPHY</div>
+        <h2 class="section-title">Sources & <span class="gradient-text">Methodology</span></h2>
+        <p class="section-desc">
+          EcoByte does not invent statistics. All metrics, energy consumption models, and environmental citations derive from verified scientific institutions.
+        </p>
+      </div>
+
+      <!-- Peer-Reviewed Sources Grid -->
+      <div class="sources-grid">
+        <div class="source-item-card glass-card">
+          <span class="source-item-badge">IEA REPORT</span>
+          <h4 class="source-item-title">International Energy Agency (IEA)</h4>
+          <div class="source-item-pub">Electricity 2024: Analysis and Forecast to 2026</div>
+          <p class="source-item-text">
+            Confirmed that global data centers consumed ~460 TWh in 2022 and forecasts growth up to 1,000 TWh by 2026 driven by cloud workloads and AI acceleration.
+          </p>
+          <div class="source-item-link">Citation: iea.org/reports/electricity-2024</div>
+        </div>
+
+        <div class="source-item-card glass-card">
+          <span class="source-item-badge">UNITED NATIONS</span>
+          <h4 class="source-item-title">UNITAR & ITU Global E-waste Monitor</h4>
+          <div class="source-item-pub">The Global E-waste Monitor 2024 (Geneva)</div>
+          <p class="source-item-text">
+            Documented that a record 62 million metric tonnes of electronic waste was generated in 2022, with only 22.3% formally recycled, losing \$62B in strategic metals.
+          </p>
+          <div class="source-item-link">Citation: ewastemonitor.info</div>
+        </div>
+
+        <div class="source-item-card glass-card">
+          <span class="source-item-badge">AI COMPUTATIONAL STUDY</span>
+          <h4 class="source-item-title">Joule Journal (de Vries, 2023) / Luccioni et al.</h4>
+          <div class="source-item-pub">The Growing Energy Footprint of Artificial Intelligence</div>
+          <p class="source-item-text">
+            Quantified that generative AI inference queries consume approximately 3 to 9 Wh of electricity per complex generation, requiring high data center cooling overhead.
+          </p>
+          <div class="source-item-link">Citation: cell.com/joule/fulltext/S2542-4351(23)00365-3</div>
+        </div>
+
+        <div class="source-item-card glass-card">
+          <span class="source-item-badge">U.S. EPA / ENERGY STAR</span>
+          <h4 class="source-item-title">U.S. Environmental Protection Agency (EPA)</h4>
+          <div class="source-item-pub">ENERGY STAR Computer & Monitor Benchmark Specifications</div>
+          <p class="source-item-text">
+            Established standard empirical active wattages: productivity laptop (40–45W), desktop with display (120W), 4K LED TV (80W), and smartphone charging (5W).
+          </p>
+          <div class="source-item-link">Citation: energystar.gov/products/computers</div>
+        </div>
+      </div>
+
+      <!-- Methodology Breakdown Table -->
+      <div class="methodology-card glass-card">
+        <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 12px;">Calculation Model & Assumptions</h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+          EcoByte computes an <strong>ESTIMATED DIGITAL ENERGY IMPACT</strong>. Actual power draw varies by silicon architecture (ARM vs x86), screen brightness, graphics load, network conditions (5G vs Wi-Fi), and regional power grid carbon intensity (modeled at global average <code>0.436 kg CO₂e / kWh</code>).
+        </p>
+
+        <div class="table-responsive">
+          <table class="assumptions-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Assumed Rating</th>
+                <th>Empirical Basis</th>
+                <th>Mathematical Formula</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Laptop Computer</strong></td>
+                <td>45 Watts (0.045 kW)</td>
+                <td>Modern productivity ultrabook under typical load</td>
+                <td><code>hours × 0.045 kWh</code></td>
+              </tr>
+              <tr>
+                <td><strong>Smartphone</strong></td>
+                <td>5 Watts (0.005 kW)</td>
+                <td>Active OLED screen + daily battery charge cycle</td>
+                <td><code>hours × 0.005 kWh</code></td>
+              </tr>
+              <tr>
+                <td><strong>Gaming Console / Rig</strong></td>
+                <td>160 Watts (0.160 kW)</td>
+                <td>Active 3D GPU rendering load</td>
+                <td><code>hours × 0.160 kWh</code></td>
+              </tr>
+              <tr>
+                <td><strong>Video Streaming</strong></td>
+                <td>0.038 kWh / hour</td>
+                <td>IEA network transmission & edge CDN overhead</td>
+                <td><code>hours × 0.038 kWh</code></td>
+              </tr>
+              <tr>
+                <td><strong>Active Cloud Storage</strong></td>
+                <td>0.001 kWh / GB / mo</td>
+                <td>Data center redundant spinning disk & cooling</td>
+                <td><code>(GB × 0.001) / 30 kWh/day</code></td>
+              </tr>
+              <tr>
+                <td><strong>AI Query Generation</strong></td>
+                <td>0.004 kWh / query</td>
+                <td>LLM tensor inference pass across GPU clusters</td>
+                <td><code>queries × 0.004 kWh</code></td>
+              </tr>
+              <tr>
+                <td><strong>Hardware Manufacturing</strong></td>
+                <td>~65 kg (Phone), ~250 kg (Laptop)</td>
+                <td>IEEE / EC upstream semiconductor supply chain</td>
+                <td><code>Embodied CO₂ / Replacement Years</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       13. ABOUT ECOBYTE SECTION
+       ========================================================================== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-card glass-card">
+        <div class="about-content-col">
+          <h2 class="about-title">About <span class="gradient-text">EcoByte</span></h2>
+          <p class="about-p">
+            <strong>EcoByte is an educational sustainability project designed to make the hidden environmental impact of digital technology easier to understand.</strong>
+          </p>
+          <p class="about-p">
+            As the world transitions to paperless workflows, cloud computing, and artificial intelligence, the physical infrastructure supporting these conveniences is expanding rapidly. EcoByte was created to bridge the knowledge gap between invisible bits and physical power grids.
+          </p>
+
+          <ul class="about-goals-list">
+            <li class="about-goal-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Raise Awareness:</strong> Demystify the physical energy costs behind cloud, streaming, and AI.</span>
+            </li>
+            <li class="about-goal-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Encourage Responsible Habits:</strong> Provide simple, actionable steps that preserve productivity.</span>
+            </li>
+            <li class="about-goal-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Promote Device Longevity:</strong> Advocate for repairability and reducing global electronic waste.</span>
+            </li>
+          </ul>
+
+          <a href="#calculator" class="btn btn-primary">Try The Calculator</a>
+        </div>
+
+        <div class="academic-badge-box">
+          <div class="acad-badge-tag">PROJECT THEME</div>
+          <h3 class="acad-project-title">Digital Technology Increasing Energy Consumption and Environmental Footprint</h3>
+          <div class="acad-theme-quote">
+            “Every click has an impact. Make yours count.”
+          </div>
+          <p class="acad-desc">
+            An interactive educational platform engineered with HTML5, CSS3, and JavaScript to foster digital environmental literacy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       14. FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="#home" class="nav-brand">
+            <div class="brand-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                <circle cx="12" cy="12" r="3" fill="#10b981" stroke="none"/>
+              </svg>
+            </div>
+            <span class="brand-name">🌱 Eco<span class="brand-accent">Byte</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            “Making digital technology more sustainable, one byte at a time.”
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#problem" class="footer-link">The Problem</a></li>
+            <li><a href="#lifecycle" class="footer-link">Impact Flow</a></li>
+            <li><a href="#calculator" class="footer-link">Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Features</div>
+          <ul class="footer-links-list">
+            <li><a href="#dashboard" class="footer-link">Results Dashboard</a></li>
+            <li><a href="#solutions" class="footer-link">Personalized Tips</a></li>
+            <li><a href="#beforeAfter" class="footer-link">Before vs After</a></li>
+            <li><a href="#didYouKnow" class="footer-link">Did You Know?</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Academic & Trust</div>
+          <ul class="footer-links-list">
+            <li><a href="#sources" class="footer-link">Sources & References</a></li>
+            <li><a href="#sources" class="footer-link">Methodology</a></li>
+            <li><a href="#about" class="footer-link">About Project</a></li>
+            <li><a href="#home" class="footer-link">Privacy (Zero Tracking)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>© 2026 EcoByte — Digital Sustainability Project. All calculations are educational estimates.</span>
+        <span>Every click has an impact. Make yours count.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       15. INTERACTIVE MODAL (For Problem Deep Dives)
+       ========================================================================== -->
+  <div class="modal-overlay" id="problemModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">✕</button>
+      <div class="modal-header-icon" id="modalIcon">📱</div>
+      <h3 class="modal-title" id="modalTitle">Device Energy Deep Dive</h3>
+      <div class="modal-body" id="modalBody">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript Application -->
+  <script src="script.js"></script>
+</body>
+</html>
